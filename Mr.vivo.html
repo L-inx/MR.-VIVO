@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MR. VIVO Barber Studio</title>
+  <link rel="stylesheet" href="Mr.vivo.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <aside class="sidebar" id="appSidebar">
+    <div class="brand">
+      <div class="logo-icon">✂️</div>
+      <div class="brand-text">
+        <span class="brand-name">MR. VIVO</span>
+        <span class="brand-sub">BARBER STUDIO</span>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="#home" class="nav-item active" onclick="switchPage('home')">Home</a>
+      <a href="#hairstyles" class="nav-item" onclick="switchPage('hairstyles')">Hairstyles</a>
+      <a href="#book" class="nav-item" onclick="switchPage('book')">Book Appointment</a>
+      <a href="#bookings" class="nav-item" onclick="switchPage('bookings')">My Bookings</a>
+      <a href="#barbers" class="nav-item" onclick="switchPage('barbers')">Our Barbers</a>
+      <a href="#hours" class="nav-item" onclick="switchPage('hours')">Business Hours</a>
+      <a href="#reviews" class="nav-item" onclick="switchPage('reviews')">Reviews</a>
+      <a href="#profile" class="nav-item" onclick="switchPage('profile')">My Profile</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="portal-label">CUSTOMER PORTAL</div>
+      <a href="#help" class="nav-item sub-nav" onclick="switchPage('help')">Help & Support</a>
+      <div class="copyright">© 2026 MR. VIVO</div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    
+    <header class="top-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()">☰</button>
+        <div class="breadcrumb" id="breadcrumbText">MR. VIVO / HOME</div>
+      </div>
+      <div class="user-pill">
+        <span class="welcome-text">Welcome, <strong id="headerUserName">Linthon</strong></span>
+        <div class="avatar-circle" id="headerAvatarCircle">L</div>
+      </div>
+    </header>
+
+    <div class="page-container">
+
+      <section id="page-login" class="page-view hidden">
+        <div class="login-wrapper">
+          
+          <div class="login-card" id="loginFormCard">
+            <span class="sub-heading">WELCOME BACK</span>
+            <h2>Sign in to MR. VIVO</h2>
+            <p class="desc">Access your appointments and saved styles.</p>
+
+            <form onsubmit="handleLogin(event)" class="login-form">
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" id="loginEmail" value="linthontagalicud@gmail.com" required>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="loginPassword" value="••••••••••••" required>
+                <a href="#" class="forgot-link">Forgot password?</a>
+              </div>
+              <button type="submit" class="btn btn-dark btn-full">LOGIN</button>
+            </form>
+
+            <div class="divider"><span>OR</span></div>
+            <button class="btn btn-outline btn-full" onclick="toggleAuthForm('signup')">CREATE AN ACCOUNT</button>
+            <p class="terms-text">By continuing, you agree to our Terms & Privacy Policy.</p>
+          </div>
+
+          <div class="login-card hidden" id="signupFormCard">
+            <span class="sub-heading">CREATE ACCOUNT</span>
+            <h2>Join MR. VIVO</h2>
+            <p class="desc">Book appointments easily and save your favorite styles.</p>
+
+            <form onsubmit="handleSignup(event)" class="login-form">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="signupName" placeholder="e.g. Linthon Tagalicud" required>
+              </div>
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" id="signupEmail" placeholder="name@example.com" required>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="signupPassword" placeholder="Create password" required>
+              </div>
+              <button type="submit" class="btn btn-dark btn-full">CREATE ACCOUNT</button>
+            </form>
+
+            <div class="divider"><span>OR</span></div>
+            <button class="btn btn-outline btn-full" onclick="toggleAuthForm('login')">ALREADY HAVE AN ACCOUNT? SIGN IN</button>
+            <p class="terms-text">By continuing, you agree to our Terms & Privacy Policy.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="page-home" class="page-view">
+        <span class="sub-heading">YOUR BARBER, YOUR STYLE</span>
+        <h1 class="page-title" id="homeGreeting">Good day, Linthon!</h1>
+        <p class="page-desc">Everything you need for a clean, confident look is right here.</p>
+
+        <div class="banner-card">
+          <span class="banner-tag">SPECIAL OFFER</span>
+          <h2>20% OFF YOUR NEXT CUT</h2>
+          <p>Book this weekend and enjoy a fresh look for less.</p>
+          <button class="btn btn-light" onclick="switchPage('book')">BOOK AN APPOINTMENT</button>
+        </div>
+
+        <div class="section-label">QUICK ACTIONS</div>
+        <div class="grid-2x2">
+          <div class="action-card" onclick="switchPage('book')">
+            <div class="card-icon">📅</div>
+            <div class="card-info">
+              <h3>Book Appointment</h3>
+              <p>Choose a service and time</p>
+            </div>
+            <span class="arrow">→</span>
+          </div>
+
+          <div class="action-card" onclick="switchPage('hairstyles')">
+            <div class="card-icon">✂️</div>
+            <div class="card-info">
+              <h3>Browse Hairstyles</h3>
+              <p>Find your next haircut</p>
+            </div>
+            <span class="arrow">→</span>
+          </div>
+
+          <div class="action-card" onclick="switchPage('barbers')">
+            <div class="card-icon">👤</div>
+            <div class="card-info">
+              <h3>Meet Our Barbers</h3>
+              <p>Choose your barber</p>
+            </div>
+            <span class="arrow">→</span>
+          </div>
+
+          <div class="action-card" onclick="switchPage('reviews')">
+            <div class="card-icon">⭐</div>
+            <div class="card-info">
+              <h3>Read Reviews</h3>
+              <p>See what customers say</p>
+            </div>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-hairstyles" class="page-view hidden">
+        <span class="sub-heading">FIND YOUR LOOK</span>
+        <h1 class="page-title">Explore Hairstyles</h1>
+        <p class="page-desc">Browse popular cuts and choose your favorite before booking.</p>
+
+        <div class="filter-bar">
+          <button class="filter-pill active" onclick="filterStyles('all', this)">ALL STYLES</button>
+          <button class="filter-pill" onclick="filterStyles('fade', this)">FADE</button>
+          <button class="filter-pill" onclick="filterStyles('classic', this)">CLASSIC</button>
+          <button class="filter-pill" onclick="filterStyles('modern', this)">MODERN</button>
+          <button class="filter-pill" onclick="filterStyles('curly', this)">CURLY</button>
+        </div>
+
+        <div class="hairstyles-grid">
+          <div class="style-card" data-category="fade">
+            <div class="style-image-wrapper">
+              <img src="https://i.imgur.com/ZcXW5G7.jpeg" alt="Low Fade Haircut">
+              <span class="style-badge">FADE</span>
+            </div>
+            <div class="style-card-body">
+              <h3>LOW FADE</h3>
+              <p>Clean sides with a subtle fade gradient transitioning seamlessly near the ears.</p>
+              <div class="style-card-footer">
+                <span class="price">₱250</span>
+                <button class="btn btn-dark btn-sm" onclick="selectStyleAndBook('Low Fade', 250)">SELECT STYLE</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="style-card" data-category="fade modern">
+            <div class="style-image-wrapper">
+              <img src="https://i.imgur.com/eNiJrkV.jpeg" alt="Mid Fade Haircut">
+              <span class="style-badge">POPULAR</span>
+            </div>
+            <div class="style-card-body">
+              <h3>MID FADE</h3>
+              <p>Balanced fade with a sharp finish, tapering off right below the temple lines.</p>
+              <div class="style-card-footer">
+                <span class="price">₱250</span>
+                <button class="btn btn-dark btn-sm" onclick="selectStyleAndBook('Mid Fade', 250)">SELECT STYLE</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="style-card" data-category="fade modern">
+            <div class="style-image-wrapper">
+              <img src="https://i.imgur.com/RzTv0nx.jpeg" alt="High Fade Haircut">
+              <span class="style-badge">TRENDING</span>
+            </div>
+            <div class="style-card-body">
+              <h3>HIGH FADE</h3>
+              <p>Bold contrast and a crisp outline starting high up near the crown level.</p>
+              <div class="style-card-footer">
+                <span class="price">₱280</span>
+                <button class="btn btn-dark btn-sm" onclick="selectStyleAndBook('High Fade', 280)">SELECT STYLE</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="style-card" data-category="classic modern">
+            <div class="style-image-wrapper">
+              <img src="https://i.imgur.com/f0DWrfU.jpeg" alt="Pompadour Haircut">
+              <span class="style-badge">CLASSIC</span>
+            </div>
+            <div class="style-card-body">
+              <h3>POMPADOUR</h3>
+              <p>High-volume swept back top styled neatly with clean, tapered side profiles.</p>
+              <div class="style-card-footer">
+                <span class="price">₱300</span>
+                <button class="btn btn-dark btn-sm" onclick="selectStyleAndBook('Pompadour', 300)">SELECT STYLE</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="style-card" data-category="classic">
+            <div class="style-image-wrapper">
+              <img src="https://i.imgur.com/qZy9kJ5.jpeg" alt="Crew Cut">
+              <span class="style-badge">LOW MAINTENANCE</span>
+            </div>
+            <div class="style-card-body">
+              <h3>CREW CUT</h3>
+              <p>Simple, neat, timeless cut that is effortless to style and maintain daily.</p>
+              <div class="style-card-footer">
+                <span class="price">₱220</span>
+                <button class="btn btn-dark btn-sm" onclick="selectStyleAndBook('Crew Cut', 220)">SELECT STYLE</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="style-card" data-category="modern curly">
+            <div class="style-image-wrapper">
+              <img src="https://i.imgur.com/oSfDzXr.jpeg" alt="Textured Crop">
+              <span class="style-badge">MODERN</span>
+            </div>
+            <div class="style-card-body">
+              <h3>TEXTURED CROP</h3>
+              <p>Modern textured top with a blunt or piecey short fringe over crisp sides.</p>
+              <div class="style-card-footer">
+                <span class="price">₱280</span>
+                <button class="btn btn-dark btn-sm" onclick="selectStyleAndBook('Textured Crop', 280)">SELECT STYLE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-book" class="page-view hidden">
+        <span class="sub-heading">RESERVE YOUR CHAIR</span>
+        <h1 class="page-title">Book an Appointment</h1>
+        <p class="page-desc">Select a hairstyle, barber, service, date, and available time.</p>
+
+        <div class="booking-layout">
+          <div class="booking-form-card">
+            
+            <div class="form-step">
+              <h3>1. CHOOSE YOUR HAIRSTYLE</h3>
+              <div class="hairstyles-selection-grid">
+                <div class="style-option" onclick="chooseStyle('Low Fade', 250, this)">
+                  <div class="opt-info">
+                    <strong>✂️ Low Fade</strong>
+                    <span>₱250</span>
+                  </div>
+                </div>
+
+                <div class="style-option selected" onclick="chooseStyle('Mid Fade', 250, this)">
+                  <div class="opt-info">
+                    <strong>✂️ Mid Fade</strong>
+                    <span>₱250</span>
+                  </div>
+                  <span class="selected-badge">SELECTED</span>
+                </div>
+
+                <div class="style-option" onclick="chooseStyle('Pompadour', 300, this)">
+                  <div class="opt-info">
+                    <strong>✂️ Pompadour</strong>
+                    <span>₱300</span>
+                  </div>
+                </div>
+
+                <div class="style-option" onclick="chooseStyle('Textured Crop', 280, this)">
+                  <div class="opt-info">
+                    <strong>✂️ Textured Crop</strong>
+                    <span>₱280</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-step">
+              <h3>2. SELECT YOUR BARBER</h3>
+              <div class="barbers-radio-group">
+                <label class="radio-chip">
+                  <input type="radio" name="barber" value="James Rodriguez" checked onchange="updateSummaryBarber(this.value)">
+                  <span>James Rodriguez</span>
+                </label>
+                <label class="radio-chip">
+                  <input type="radio" name="barber" value="Marcus Lee" onchange="updateSummaryBarber(this.value)">
+                  <span>Marcus Lee</span>
+                </label>
+                <label class="radio-chip">
+                  <input type="radio" name="barber" value="David Cruz" onchange="updateSummaryBarber(this.value)">
+                  <span>David Cruz</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-step">
+              <h3>3. DATE & TIME</h3>
+              <div class="grid-2col">
+                <div class="input-field">
+                  <label>Date</label>
+                  <input type="date" id="bookingDateInput" onchange="updateSummaryDate(this.value)">
+                </div>
+                <div class="input-field">
+                  <label>Time</label>
+                  <select id="bookingTimeSelect" onchange="updateSummaryTime(this.value)">
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:30 AM">11:30 AM</option>
+                    <option value="02:00 PM">02:00 PM</option>
+                    <option value="04:30 PM">04:30 PM</option>
+                    <option value="06:00 PM">06:00 PM</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-step">
+              <h3>4. YOUR DETAILS</h3>
+              <div class="grid-2col">
+                <div class="input-field">
+                  <label>Full name</label>
+                  <input type="text" id="custNameInput" value="Linthon Tagalicud">
+                </div>
+                <div class="input-field">
+                  <label>Mobile number</label>
+                  <input type="text" id="custPhoneInput" value="+63 919 778 1872">
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-dark btn-full btn-lg" onclick="confirmBooking()">SUBMIT BOOKING REQUEST</button>
+          </div>
+
+          <div class="summary-card">
+            <span class="sub-heading">BOOKING SUMMARY</span>
+            <h2>Your selected appointment</h2>
+
+            <div class="summary-list">
+              <div class="summary-row">
+                <span class="label">Hairstyle</span>
+                <span class="val" id="sumStyle">Mid Fade</span>
+              </div>
+              <div class="summary-row">
+                <span class="label">Barber</span>
+                <span class="val" id="sumBarber">James Rodriguez</span>
+              </div>
+              <div class="summary-row">
+                <span class="label">Date</span>
+                <span class="val" id="sumDate">Select date</span>
+              </div>
+              <div class="summary-row">
+                <span class="label">Time</span>
+                <span class="val" id="sumTime">10:00 AM</span>
+              </div>
+              <div class="summary-row">
+                <span class="label">Service</span>
+                <span class="val">Haircut</span>
+              </div>
+            </div>
+
+            <div class="summary-total">
+              <span>TOTAL</span>
+              <span class="total-price" id="sumTotal">₱250</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-confirmation" class="page-view hidden">
+        <div class="confirmation-wrapper">
+          <div class="confirmation-card">
+            <div class="check-circle">✓</div>
+            <span class="sub-heading">BOOKING REQUEST RECEIVED</span>
+            <h2 id="confUserHeading">You’re all set, Linthon!</h2>
+            <p class="desc">Your appointment request has been submitted.<br>We’ll notify you once the barber confirms your booking.</p>
+
+            <div class="confirmation-details">
+              <strong id="confSummaryLine">MID FADE • JAMES RODRIGUEZ</strong>
+              <p id="confDateLine">October 15, 2026 · 10:00 AM · ₱250</p>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn btn-dark" onclick="switchPage('bookings')">VIEW MY BOOKINGS</button>
+              <button class="btn btn-outline" onclick="switchPage('home')">BACK TO HOME</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-bookings" class="page-view hidden">
+        <span class="sub-heading">YOUR APPOINTMENTS</span>
+        <h1 class="page-title">My Bookings</h1>
+        <p class="page-desc">View your upcoming appointments and booking history.</p>
+
+        <div class="white-card">
+          <h3 class="card-section-title">UPCOMING APPOINTMENTS</h3>
+
+          <div class="table-responsive">
+            <table class="bookings-table">
+              <thead>
+                <tr>
+                  <th>DATE</th>
+                  <th>SERVICE & STYLE</th>
+                  <th>BARBER</th>
+                  <th>TIME</th>
+                  <th>STATUS</th>
+                  <th>ACTION</th>
+                </tr>
+              </thead>
+              <tbody id="bookingsTableBody">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="empty-state hidden" id="noBookingsState">
+            <p>No upcoming appointments yet.</p>
+          </div>
+
+          <div class="card-action">
+            <button class="btn btn-dark" onclick="switchPage('book')">BOOK ANOTHER APPOINTMENT</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-barbers" class="page-view hidden">
+        <span class="sub-heading">THE TEAM</span>
+        <h1 class="page-title">Meet Our Master Barbers</h1>
+        <p class="page-desc">Skilled professionals dedicated to crafting your perfect look.</p>
+
+        <div class="barbers-grid">
+          <div class="barber-card">
+            <div class="barber-avatar">JR</div>
+            <h3>James Rodriguez</h3>
+            <span class="barber-role">Senior Barber / Fade Specialist</span>
+            <p>10+ years experience in precision fades, hot towel shaves, and classic pompadours.</p>
+            <button class="btn btn-dark btn-full btn-sm mb-10" onclick="selectBarberAndBook('James Rodriguez')">BOOK WITH JAMES</button>
+            <button class="btn btn-outline btn-full btn-sm" onclick="openReviewModal('James Rodriguez')">⭐ LEAVE REVIEW</button>
+          </div>
+
+          <div class="barber-card">
+            <div class="barber-avatar">ML</div>
+            <h3>Marcus Lee</h3>
+            <span class="barber-role">Stylist & Taper Expert</span>
+            <p>Specializes in textured modern crops, beard trimming, and detailed line-ups.</p>
+            <button class="btn btn-dark btn-full btn-sm mb-10" onclick="selectBarberAndBook('Marcus Lee')">BOOK WITH MARCUS</button>
+            <button class="btn btn-outline btn-full btn-sm" onclick="openReviewModal('Marcus Lee')">⭐ LEAVE REVIEW</button>
+          </div>
+
+          <div class="barber-card">
+            <div class="barber-avatar">DC</div>
+            <h3>David Cruz</h3>
+            <span class="barber-role">Classic Cuts Specialist</span>
+            <p>Expert in traditional scissor cuts, side parts, and premium grooming treatments.</p>
+            <button class="btn btn-dark btn-full btn-sm mb-10" onclick="selectBarberAndBook('David Cruz')">BOOK WITH DAVID</button>
+            <button class="btn btn-outline btn-full btn-sm" onclick="openReviewModal('David Cruz')">⭐ LEAVE REVIEW</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-hours" class="page-view hidden">
+        <span class="sub-heading">PLAN YOUR VISIT</span>
+        <h1 class="page-title">Business Hours</h1>
+        <p class="page-desc">A fresh cut starts with the right time. Find a moment that works for you.</p>
+
+        <div class="hours-layout">
+          <div class="hours-table-card">
+            <div class="table-header-flex">
+              <div>
+                <h3>Weekly opening hours</h3>
+                <span class="studio-sub font-sm">MR. VIVO Barber Studio</span>
+              </div>
+              <div class="clock-icon">🕒</div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="hours-table">
+                <thead>
+                  <tr>
+                    <th>DAY</th>
+                    <th class="text-right">OPENING HOURS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Monday</td>
+                    <td class="text-right">9:00 AM – 7:00 PM</td>
+                  </tr>
+                  <tr>
+                    <td>Tuesday</td>
+                    <td class="text-right">9:00 AM – 7:00 PM</td>
+                  </tr>
+                  <tr class="highlight-row">
+                    <td><strong>Wednesday</strong> <span class="today-pill">TODAY</span></td>
+                    <td class="text-right"><strong>9:00 AM – 7:00 PM</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Thursday</td>
+                    <td class="text-right">9:00 AM – 7:00 PM</td>
+                  </tr>
+                  <tr>
+                    <td>Friday</td>
+                    <td class="text-right">9:00 AM – 8:00 PM</td>
+                  </tr>
+                  <tr>
+                    <td>Saturday</td>
+                    <td class="text-right">9:00 AM – 8:00 PM</td>
+                  </tr>
+                  <tr>
+                    <td>Sunday</td>
+                    <td class="text-right">10:00 AM – 5:00 PM</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="notice-line">
+              <span>ℹ️ Hours may change on public holidays. Check available times when booking.</span>
+            </div>
+          </div>
+
+          <div class="hours-sidebar-column">
+            <div class="white-card open-card">
+              <span class="open-status">🟢 OPEN TODAY</span>
+              <span class="day-title">Wednesday</span>
+              <h2 class="time-range">9:00 AM – 7:00 PM</h2>
+              <hr class="divider-line">
+              <h3>Make time for a fresh cut</h3>
+              <p class="desc-sm">Choose your service, pick your barber, and reserve your next visit.</p>
+              <button class="btn btn-dark btn-full" onclick="switchPage('book')">📅 BOOK APPOINTMENT</button>
+              <span class="foot-note text-center">Available times are shown when booking.</span>
+            </div>
+
+            <div class="white-card">
+              <h3>Before your visit</h3>
+              <ul class="visit-tips">
+                <li>✓ Arrive 5–10 minutes before your appointment.</li>
+                <li>✓ Walk-ins are welcome, subject to availability.</li>
+              </ul>
+              <a href="#help" onclick="switchPage('help')" class="gold-link">Questions? Visit Help & Support →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-reviews" class="page-view hidden">
+        <span class="sub-heading">CUSTOMER FEEDBACK</span>
+        <h1 class="page-title">Reviews & Ratings</h1>
+        <p class="page-desc">See what customers are saying about their MR. VIVO experience.</p>
+
+        <div class="white-card rating-summary-box">
+          <div class="score-side">
+            <div class="big-score">4.8</div>
+            <div class="stars">★★★★★</div>
+            <span class="based-on">Based on <span id="reviewCountDisplay">284</span> customer reviews</span>
+          </div>
+
+          <div class="breakdown-side">
+            <div class="rating-bar-row">
+              <span>5 ★</span>
+              <div class="bar-bg"><div class="bar-fill" style="width: 82%;"></div></div>
+            </div>
+            <div class="rating-bar-row">
+              <span>4 ★</span>
+              <div class="bar-bg"><div class="bar-fill" style="width: 14%;"></div></div>
+            </div>
+            <div class="rating-bar-row">
+              <span>3 ★</span>
+              <div class="bar-bg"><div class="bar-fill" style="width: 3%;"></div></div>
+            </div>
+            <div class="rating-bar-row">
+              <span>2 ★</span>
+              <div class="bar-bg"><div class="bar-fill" style="width: 1%;"></div></div>
+            </div>
+            <div class="rating-bar-row">
+              <span>1 ★</span>
+              <div class="bar-bg"><div class="bar-fill" style="width: 0%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews-list" id="reviewsListContainer">
+          <div class="review-card">
+            <div class="reviewer-info">
+              <strong>Carlos M. <span style="font-size: 11px; color: var(--accent-gold); font-weight: 600;">(Barber: James Rodriguez)</span></strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <p class="review-text">Best fade I've ever had. James is incredibly skilled and professional.</p>
+          </div>
+
+          <div class="review-card">
+            <div class="reviewer-info">
+              <strong>Andre T. <span style="font-size: 11px; color: var(--accent-gold); font-weight: 600;">(Barber: Marcus Lee)</span></strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <p class="review-text">Great service, clean shop, highly recommend Marcus for tapers.</p>
+          </div>
+
+          <div class="review-card">
+            <div class="reviewer-info">
+              <strong>Kevin L. <span style="font-size: 11px; color: var(--accent-gold); font-weight: 600;">(Barber: David Cruz)</span></strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <p class="review-text">Always on time and the quality is consistently great.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-profile" class="page-view hidden">
+        <span class="sub-heading">YOUR ACCOUNT</span>
+        <h1 class="page-title">My Profile</h1>
+        <p class="page-desc">Keep your details up to date for a smooth visit, every time.</p>
+
+        <div class="profile-layout">
+          <div class="white-card">
+            <h3 class="card-section-title">Personal information</h3>
+            <p class="desc-sm mb-20">Update your personal and contact details below.</p>
+
+            <div class="profile-header-user">
+              <div class="avatar-large" id="profileAvatarLarge">L</div>
+              <div class="user-meta">
+                <h3 id="profileNameDisplay">Linthon Tagalicud</h3>
+                <span>MR. VIVO customer</span>
+              </div>
+              <button class="btn btn-outline btn-sm btn-change-photo">Change photo</button>
+            </div>
+
+            <form onsubmit="handleProfileUpdate(event)" class="profile-form">
+              <div class="grid-2col">
+                <div class="input-field">
+                  <label>First name</label>
+                  <input type="text" id="profileFirstName" value="Linthon">
+                </div>
+                <div class="input-field">
+                  <label>Last name</label>
+                  <input type="text" id="profileLastName" value="Tagalicud">
+                </div>
+              </div>
+
+              <div class="input-field">
+                <label>Email address</label>
+                <div class="input-with-icon">
+                  <input type="email" id="profileEmail" value="linthontagalicud@gmail.com">
+                  <span class="field-icon">✉️</span>
+                </div>
+              </div>
+
+              <div class="input-field">
+                <label>Mobile number</label>
+                <div class="input-with-icon">
+                  <input type="text" id="profilePhone" value="+63 919 778 1872">
+                  <span class="field-icon">📞</span>
+                </div>
+                <span class="input-hint">Used for appointment updates and reminders.</span>
+              </div>
+
+              <div class="grid-2col">
+                <div class="input-field">
+                  <label>Date of birth (optional)</label>
+                  <div class="input-with-icon">
+                    <input type="text" value="15 June 1995">
+                    <span class="field-icon">📅</span>
+                  </div>
+                </div>
+                <div class="input-field">
+                  <label>Gender (optional)</label>
+                  <select>
+                    <option selected>Male</option>
+                    <option>Female</option>
+                    <option>Prefer not to say</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-actions-right">
+                <button type="button" class="btn btn-text">Cancel</button>
+                <button type="submit" class="btn btn-dark">SAVE CHANGES</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="profile-side-column">
+            <div class="white-card">
+              <div class="card-header-flex">
+                <h3>Account security</h3>
+                <span>🛡️</span>
+              </div>
+              <div class="input-field">
+                <label>Password</label>
+                <input type="password" value="••••••••••••" readonly>
+              </div>
+              <p class="desc-sm">Keep your account secure with a strong, unique password.</p>
+              <button class="btn btn-outline btn-full btn-sm mt-15">Change password</button>
+            </div>
+
+            <div class="white-card">
+              <h3>Notifications</h3>
+              <div class="toggle-row mt-15">
+                <div>
+                  <strong>Email reminders</strong>
+                  <p class="desc-sm">Get a reminder before your appointment.</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="white-card">
+              <h3>Account controls</h3>
+              <div class="control-links mt-15">
+                <a href="#login" onclick="handleSignOut()" class="control-item">🚪 Sign out</a>
+                <a href="#" onclick="alert('Account deletion requested.')" class="danger-link mt-15">Delete account</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="footnote-sample">Sample profile - Contact details and personal information are for illustration.</p>
+      </section>
+
+      <section id="page-help" class="page-view hidden">
+        <span class="sub-heading">NEED ASSISTANCE?</span>
+        <h1 class="page-title">Help & Support</h1>
+        <p class="page-desc">Frequently asked questions and contact channels.</p>
+
+        <div class="white-card">
+          <h3>Frequently Asked Questions</h3>
+          <div class="faq-list mt-15">
+            <div class="faq-item">
+              <strong>How do I cancel or reschedule my appointment?</strong>
+              <p>Go to "My Bookings" and click the "Cancel" button on your upcoming appointment row.</p>
+            </div>
+            <div class="faq-item mt-15">
+              <strong>What payment methods do you accept?</strong>
+              <p>We accept cash, credit/debit cards, and GCash / Maya digital wallets in the studio.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- REVIEW MODAL -->
+  <div id="reviewModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <span class="sub-heading">LEAVE A REVIEW</span>
+      <h2 id="modalBarberTitle">Review Barber</h2>
+      <p class="desc mb-20">Share your experience with this barber.</p>
+
+      <form onsubmit="submitReview(event)">
+        <div class="form-group">
+          <label>Rating</label>
+          <select id="reviewRatingSelect" class="form-control">
+            <option value="5">★★★★★ (5/5 - Excellent)</option>
+            <option value="4">★★★★☆ (4/5 - Very Good)</option>
+            <option value="3">★★★☆☆ (3/5 - Good)</option>
+            <option value="2">★★☆☆☆ (2/5 - Fair)</option>
+            <option value="1">★☆☆☆☆ (1/5 - Poor)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Review Comment</label>
+          <textarea id="reviewCommentInput" rows="4" placeholder="Write your review here..." required style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border-light); font-family:var(--font-family); font-size:14px; outline:none;"></textarea>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+          <button type="button" class="btn btn-outline" onclick="closeReviewModal()">Cancel</button>
+          <button type="submit" class="btn btn-dark">Submit Review</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-overlay.hidden {
+      display: none;
+    }
+    .modal-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 32px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .mb-10 { margin-bottom: 10px; }
+  </style>
+
+  <script>
+    let currentUser = JSON.parse(localStorage.getItem('mrvivo_user')) || {
+      name: 'Linthon Tagalicud',
+      email: 'linthontagalicud@gmail.com',
+      phone: '+63 919 778 1872'
+    };
+
+    let userAccounts = JSON.parse(localStorage.getItem('mrvivo_accounts')) || [
+      { name: 'Linthon Tagalicud', email: 'linthontagalicud@gmail.com', password: 'password123', phone: '+63 919 778 1872' }
+    ];
+
+    let bookings = JSON.parse(localStorage.getItem('mrvivo_bookings')) || [
+      {
+        id: '1',
+        date: '2026-10-15',
+        displayDate: 'OCT 15, 2026',
+        style: 'Mid Fade',
+        barber: 'James Rodriguez',
+        time: '10:00 AM',
+        price: 250,
+        status: 'PENDING'
+      }
+    ];
+
+    let reviews = JSON.parse(localStorage.getItem('mrvivo_reviews')) || [
+      { name: 'Carlos M.', barber: 'James Rodriguez', rating: 5, comment: "Best fade I've ever had. James is incredibly skilled and professional." },
+      { name: 'Andre T.', barber: 'Marcus Lee', rating: 5, comment: "Great service, clean shop, highly recommend Marcus for tapers." },
+      { name: 'Kevin L.', barber: 'David Cruz', rating: 5, comment: "Always on time and the quality is consistently great." }
+    ];
+
+    let selectedStyleName = 'Mid Fade';
+    let selectedPrice = 250;
+    let selectedBarber = 'James Rodriguez';
+    let reviewTargetBarber = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const today = new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('bookingDateInput');
+      if (dateInput) {
+        dateInput.value = today;
+        updateSummaryDate(today);
+      }
+      updateUIForUser();
+      renderBookingsTable();
+      renderReviewsList();
+    });
+
+    function toggleMobileSidebar() {
+      const sidebar = document.getElementById('appSidebar');
+      sidebar.classList.toggle('mobile-open');
+    }
+
+    function switchPage(pageId) {
+      const views = document.querySelectorAll('.page-view');
+      views.forEach(v => v.classList.add('hidden'));
+
+      const targetView = document.getElementById('page-' + pageId);
+      if (targetView) targetView.classList.remove('hidden');
+
+      const navItems = document.querySelectorAll('.sidebar .nav-item');
+      navItems.forEach(item => item.classList.remove('active'));
+
+      const activeNav = Array.from(navItems).find(item => {
+        const href = item.getAttribute('href');
+        return href && href.includes(pageId);
+      });
+      if (activeNav) activeNav.classList.add('active');
+
+      const breadcrumb = document.getElementById('breadcrumbText');
+      if (breadcrumb) {
+        breadcrumb.innerText = `MR. VIVO / ${pageId.toUpperCase()}`;
+      }
+
+      const sidebar = document.getElementById('appSidebar');
+      if (sidebar) sidebar.classList.remove('mobile-open');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleAuthForm(mode) {
+      const loginCard = document.getElementById('loginFormCard');
+      const signupCard = document.getElementById('signupFormCard');
+      if (mode === 'signup') {
+        loginCard.classList.add('hidden');
+        signupCard.classList.remove('hidden');
+      } else {
+        signupCard.classList.add('hidden');
+        loginCard.classList.remove('hidden');
+      }
+    }
+
+    function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const pass = document.getElementById('loginPassword').value.trim();
+
+      const found = userAccounts.find(acc => acc.email.toLowerCase() === email.toLowerCase());
+      if (found) {
+        currentUser = { name: found.name, email: found.email, phone: found.phone || '+63 919 778 1872' };
+        localStorage.setItem('mrvivo_user', JSON.stringify(currentUser));
+        updateUIForUser();
+        alert('Welcome back, ' + currentUser.name.split(' ')[0] + '!');
+        switchPage('home');
+      } else {
+        alert('Account not found! Creating session with entered email.');
+        currentUser = { name: email.split('@')[0], email: email, phone: '+63 919 778 1872' };
+        localStorage.setItem('mrvivo_user', JSON.stringify(currentUser));
+        updateUIForUser();
+        switchPage('home');
+      }
+    }
+
+    function handleSignup(event) {
+      event.preventDefault();
+      const name = document.getElementById('signupName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const password = document.getElementById('signupPassword').value.trim();
+
+      if (userAccounts.some(acc => acc.email.toLowerCase() === email.toLowerCase())) {
+        alert('An account with this email already exists!');
+        return;
+      }
+
+      const newUser = { name, email, password, phone: '+63 919 778 1872' };
+      userAccounts.push(newUser);
+      localStorage.setItem('mrvivo_accounts', JSON.stringify(userAccounts));
+
+      currentUser = { name: newUser.name, email: newUser.email, phone: newUser.phone };
+      localStorage.setItem('mrvivo_user', JSON.stringify(currentUser));
+
+      updateUIForUser();
+      alert('Account created successfully! Welcome to MR. VIVO, ' + name + '!');
+      switchPage('home');
+    }
+
+    function handleSignOut() {
+      currentUser = { name: 'Guest', email: '', phone: '' };
+      localStorage.removeItem('mrvivo_user');
+      updateUIForUser();
+      switchPage('login');
+    }
+
+    function updateUIForUser() {
+      const firstName = currentUser.name ? currentUser.name.split(' ')[0] : 'Guest';
+      const initial = firstName.charAt(0).toUpperCase();
+
+      document.getElementById('headerUserName').innerText = firstName;
+      document.getElementById('headerAvatarCircle').innerText = initial;
+      document.getElementById('homeGreeting').innerText = `Good day, ${firstName}!`;
+      document.getElementById('confUserHeading').innerText = `You’re all set, ${firstName}!`;
+
+      document.getElementById('profileNameDisplay').innerText = currentUser.name || 'Guest User';
+      document.getElementById('profileAvatarLarge').innerText = initial;
+      
+      const names = (currentUser.name || '').split(' ');
+      document.getElementById('profileFirstName').value = names[0] || '';
+      document.getElementById('profileLastName').value = names.slice(1).join(' ') || '';
+      document.getElementById('profileEmail').value = currentUser.email || '';
+      document.getElementById('profilePhone').value = currentUser.phone || '';
+
+      document.getElementById('custNameInput').value = currentUser.name || '';
+      document.getElementById('custPhoneInput').value = currentUser.phone || '';
+    }
+
+    function handleProfileUpdate(event) {
+      event.preventDefault();
+      const fName = document.getElementById('profileFirstName').value.trim();
+      const lName = document.getElementById('profileLastName').value.trim();
+      currentUser.name = `${fName} ${lName}`.trim();
+      currentUser.email = document.getElementById('profileEmail').value.trim();
+      currentUser.phone = document.getElementById('profilePhone').value.trim();
+      localStorage.setItem('mrvivo_user', JSON.stringify(currentUser));
+      updateUIForUser();
+      alert('Profile details updated successfully!');
+    }
+
+    function filterStyles(category, element) {
+      const pills = document.querySelectorAll('.filter-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      element.classList.add('active');
+
+      const cards = document.querySelectorAll('.style-card');
+      cards.forEach(card => {
+        const cardCats = card.getAttribute('data-category') || '';
+        if (category === 'all' || cardCats.includes(category)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function selectStyleAndBook(styleName, price) {
+      selectedStyleName = styleName;
+      selectedPrice = price;
+      updateSummary();
+      switchPage('book');
+    }
+
+    function selectBarberAndBook(barberName) {
+      selectedBarber = barberName;
+      updateSummaryBarber(barberName);
+      const radios = document.getElementsByName('barber');
+      radios.forEach(r => {
+        if(r.value === barberName) r.checked = true;
+      });
+      switchPage('book');
+    }
+
+    function chooseStyle(name, price, element) {
+      selectedStyleName = name;
+      selectedPrice = price;
+
+      const opts = document.querySelectorAll('.style-option');
+      opts.forEach(o => {
+        o.classList.remove('selected');
+        const badge = o.querySelector('.selected-badge');
+        if (badge) badge.remove();
+      });
+
+      element.classList.add('selected');
+      const badge = document.createElement('span');
+      badge.className = 'selected-badge';
+      badge.innerText = 'SELECTED';
+      element.appendChild(badge);
+
+      updateSummary();
+    }
+
+    function updateSummaryBarber(barber) {
+      selectedBarber = barber;
+      document.getElementById('sumBarber').innerText = barber;
+    }
+
+    function updateSummaryDate(val) {
+      if (!val) return;
+      const formatted = formatDateDisplay(val);
+      document.getElementById('sumDate').innerText = formatted;
+    }
+
+    function updateSummaryTime(val) {
+      document.getElementById('sumTime').innerText = val;
+    }
+
+    function updateSummary() {
+      document.getElementById('sumStyle').innerText = selectedStyleName;
+      document.getElementById('sumTotal').innerText = `₱${selectedPrice}`;
+    }
+
+    function formatDateDisplay(dateString) {
+      if (!dateString) return 'N/A';
+      const options = { year: 'numeric', month: 'short', day: 'numeric' };
+      const d = new Date(dateString);
+      if (isNaN(d.getTime())) return dateString;
+      return d.toLocaleDateString('en-US', options).toUpperCase();
+    }
+
+    function confirmBooking() {
+      const rawDate = document.getElementById('bookingDateInput').value;
+      const timeVal = document.getElementById('bookingTimeSelect').value;
+      const displayDate = formatDateDisplay(rawDate);
+
+      if (!rawDate) {
+        alert('Please select a valid appointment date.');
+        return;
+      }
+
+      document.getElementById('confSummaryLine').innerText = `${selectedStyleName.toUpperCase()} • ${selectedBarber.toUpperCase()}`;
+      document.getElementById('confDateLine').innerText = `${displayDate} · ${timeVal} · ₱${selectedPrice}`;
+
+      const newBooking = {
+        id: Date.now().toString() + Math.floor(Math.random() * 1000).toString(),
+        date: rawDate,
+        displayDate: displayDate,
+        style: selectedStyleName,
+        barber: selectedBarber,
+        time: timeVal,
+        price: selectedPrice,
+        status: 'PENDING'
+      };
+
+      bookings.unshift(newBooking);
+      localStorage.setItem('mrvivo_bookings', JSON.stringify(bookings));
+      renderBookingsTable();
+
+      switchPage('confirmation');
+    }
+
+    function cancelBooking(bookingId) {
+      if (confirm('Are you sure you want to cancel this appointment?')) {
+        bookings = bookings.filter(b => String(b.id) !== String(bookingId));
+        localStorage.setItem('mrvivo_bookings', JSON.stringify(bookings));
+        renderBookingsTable();
+      }
+    }
+
+    function renderBookingsTable() {
+      const tbody = document.getElementById('bookingsTableBody');
+      const emptyState = document.getElementById('noBookingsState');
+      if (!tbody) return;
+
+      tbody.innerHTML = '';
+
+      if (bookings.length === 0) {
+        if (emptyState) emptyState.classList.remove('hidden');
+        return;
+      }
+
+      if (emptyState) emptyState.classList.add('hidden');
+
+      bookings.forEach(b => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><strong>${b.displayDate}</strong></td>
+          <td>Haircut - ${b.style}</td>
+          <td>${b.barber}</td>
+          <td>${b.time}</td>
+          <td><span class="status-badge pending">${b.status}</span></td>
+          <td>
+            <button class="btn btn-outline btn-sm" style="color: #ef4444; border-color: #fca5a5;" onclick="cancelBooking('${b.id}')">CANCEL</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // REVIEW SYSTEM FUNCTIONS
+    function openReviewModal(barberName) {
+      reviewTargetBarber = barberName;
+      document.getElementById('modalBarberTitle').innerText = `Review for ${barberName}`;
+      document.getElementById('reviewCommentInput').value = '';
+      document.getElementById('reviewRatingSelect').value = '5';
+      document.getElementById('reviewModal').classList.remove('hidden');
+    }
+
+    function closeReviewModal() {
+      document.getElementById('reviewModal').classList.add('hidden');
+    }
+
+    function submitReview(event) {
+      event.preventDefault();
+      const rating = parseInt(document.getElementById('reviewRatingSelect').value);
+      const comment = document.getElementById('reviewCommentInput').value.trim();
+      const reviewerName = currentUser.name || 'Guest User';
+
+      const newReview = {
+        name: reviewerName,
+        barber: reviewTargetBarber,
+        rating: rating,
+        comment: comment
+      };
+
+      reviews.unshift(newReview);
+      localStorage.setItem('mrvivo_reviews', JSON.stringify(reviews));
+      renderReviewsList();
+      closeReviewModal();
+      alert('Thank you! Your review has been posted successfully.');
+      switchPage('reviews');
+    }
+
+    function renderReviewsList() {
+      const container = document.getElementById('reviewsListContainer');
+      const countDisplay = document.getElementById('reviewCountDisplay');
+      if (!container) return;
+
+      container.innerHTML = '';
+      if (countDisplay) countDisplay.innerText = 281 + reviews.length;
+
+      reviews.forEach(r => {
+        let starsStr = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+        const card = document.createElement('div');
+        card.className = 'review-card';
+        card.innerHTML = `
+          <div class="reviewer-info">
+            <strong>${r.name} <span style="font-size: 11px; color: var(--accent-gold); font-weight: 600;">(Barber: ${r.barber})</span></strong>
+            <div class="stars">${starsStr}</div>
+          </div>
+          <p class="review-text">${r.comment}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
